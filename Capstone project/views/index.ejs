@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+
+<div class= "container1"><h1> SOLOMAO SUNG </h1> </div>
+<div class= "container2">
+<h1> Posts </h1>
+<ul>
+    <% posts.forEach(function(post) { %>
+        <li>
+            <h2><a href="/post/<%= post.id %>"><%= post.title %></a></h2>
+        </li>
+   <% }) %>
+</ul>
+
+<a href="/create" class="button">Criar um Novo Post</a>
+</div>
+<%- include("partials/footer.ejs") %>

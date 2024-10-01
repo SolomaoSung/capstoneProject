@@ -1,0 +1,38 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container1">
+    <h1>
+        <%= post.title %>
+    </h1>
+</div>
+<div class="container2">
+    <p>
+        <%= post.content %>
+    </p>
+
+    <button type="button" class="button" onclick="deletePost('<%= post.id %>')">Delete Post</button>
+    
+    <script>
+        function deletePost(postId) {
+            fetch(`/post/${postId}/delete`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Post deletado com sucesso!') {
+                    window.location.href = '/'; // Redireciona para a página inicial após o delete
+                } else {
+                    alert(data.message); // Mostra mensagem de erro
+                }
+            })
+            .catch(err => console.error('Error:', err));
+        }
+    </script>
+    <br>
+
+    <a href="/edit/<%= post.id %>" class="button">Edit Post</a>
+    <br>
+    <a href="/" class="button">Home</a>
+</div>
+
+<%- include("partials/footer.ejs") %>

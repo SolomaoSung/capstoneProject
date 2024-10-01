@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+<h1 class="container1"> Create a post </h1>
+<form action="/create" method="POST">
+    <div class="container2">
+    <label for="title">Título:</label>
+    <br>
+    <input type="text" id="title" name="title" required>
+    </div>
+    <div class="container2">
+    <label for="content"> Conteúdo:</label>
+    <br>
+    <textarea id="content" name= "content" rows= "10" required ></textarea>
+    </div>
+    <input class="container2" type="submit" value="Publicar post">
+</form>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,21 @@
+<%- include("partials/header.ejs") %>
+
+<h1 class="container1">Editar post</h1>
+
+<form action ="/update/<%= post.id %>" method="POST">
+    <div class = "container2">
+    <label for="title">Título</label>
+    <br>
+    <input type="text" id="title" name="title" value ="<%= post.title %>" required>
+    </div>
+    <div class = "container2">
+    <label for="content">Conteúdo</label>
+    <br>
+    <textarea id="content" name="content" rows="10" required><%= post.content %></textarea>
+    </div>
+    <div class = "container2">
+    <input type="submit" value="Salvar alterações">
+    </div>
+</form>
+
+<%- include("partials/footer.ejs") %>
